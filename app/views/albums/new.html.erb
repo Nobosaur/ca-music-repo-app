@@ -1,0 +1,10 @@
+<%= form_for(@albumNew) do |f| %>  
+    <div class="field"> 
+      Cover image path:<br> <%= f.text_area :cover %><br>
+       Title:<br> <%= f.text_area :title %><br> 
+      Artist: <br><%= f.text_area :artist %> 
+    </div> 
+    <div class="actions"> 
+      <%= f.submit "Save" %> 
+    </div> 
+<% end %>

@@ -1,0 +1,19 @@
+<div class="show row">
+  <div class="cover col-md-4"> 
+      <div class="edit-button col-md-6"><%= link_to "Edit album info", edit_album_path(@album) %></div>
+      <div class="edit-button col-md-6"><%= link_to "Add new track", new_album_track_path(@album) %></div> 
+    </div>
+
+  <div class="col-sm-8">
+    <h3 class="album-title">  </h3>
+    <p class="album-artist">  </p>
+
+    <% @tracks.each do |track| %> 
+    <div class="track row">
+        <div class="name col-md-6"><%= track.name %></div>
+        <div class="minutes col-md-4"><%= track.minutes %> min</div>
+        <div class="col-md-2"> <%= link_to "Edit", controller: "tracks", action: "edit", id: track %></div>
+    </div>
+    <% end %>    
+  </div>
+</div>
