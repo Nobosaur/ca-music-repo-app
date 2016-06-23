@@ -1,7 +1,11 @@
 <div class="show row">
-  <div class="cover col-md-4"> 
-      <div class="edit-button col-md-6"><%= link_to "Edit album info", edit_album_path(@album) %></div>
-      <div class="edit-button col-md-6"><%= link_to "Add new track", new_album_track_path(@album) %></div> 
+  <div class="cover col-md-4">
+      <% if current_user %>
+          <div class="edit-button col-md-6"><%= link_to "Edit album info", edit_album_path(@album) %></div>
+          <div class="edit-button col-md-6"><%= link_to "Add new track", new_album_track_path(@album) %></div> 
+      <% else %> 
+          <!--If not loged in not showing add new part-->      
+      <% end %>
     </div>
 
   <div class="col-sm-8">
@@ -10,9 +14,14 @@
 
     <% @tracks.each do |track| %> 
     <div class="track row">
-        <div class="name col-md-6"><%= track.name %></div>
-        <div class="minutes col-md-4"><%= track.minutes %> min</div>
-        <div class="col-md-2"> <%= link_to "Edit", controller: "tracks", action: "edit", id: track %></div>
+        <div class="name col-md-4"><%= track.name %></div>
+        <div class="minutes col-md-2"><%= track.minutes %> min</div>
+        <% if current_user %>
+            <div class="col-md-2"> <%= link_to "Edit", edit_album_track_path(@album, track) %></div>
+            <div class="col-md-2"> <%= link_to 'Delete', track_path(track), method: :delete %></div>
+        <% else %> 
+            <!--If not loged in not showing add new part-->      
+        <% end %>
     </div>
     <% end %>    
   </div>
