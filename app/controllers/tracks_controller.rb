@@ -1,39 +1,49 @@
 class TracksController < ApplicationController
+    
+    before_action :require_user, only: [:new, :create, :edit, :update, :destroy]
+    
     def index
         @track = Track.all
     end
     
     def new
         @trackNew = Track.new
-        #@albumId = Album.find(params[:album_id])
+       
     end
     
     def create
         @albumId = Album.find(params[:album_id])
-        #album = @albumId
-        #@trackNew = @albumId.tracks.create(tracks_params)
-        #track.save # => saves both post and comment
-        @trackNew = @albumId.track.create(tracks_params)
+        @trackNew = @albumId.track.build(tracks_params)
         if @trackNew.save 
-            redirect_to root_path
+            redirect_to album_path(@albumId)
         else 
             render 'new' 
         end 
     end
     
     def edit
-       @trackEdit = Track.find(params[:id])  
+       @trackEdit = Track.find(params[:id]) 
+        @albumId = Album.find(params[:album_id])
     end
     
     def update 
         @trackEdit = Track.find(params[:id]) 
         if @trackEdit.update_attributes(tracks_params) 
             #srediti recirect na album
-            #redirect_to controller: "albums", action: "show" ,:id => @album.id
+            #redirect_to controller: "albums", action: "show" ,:id => @albumId
             redirect_to root_path
         else 
             render 'edit' 
         end 
+    end
+    
+    def destroy
+        @trackDestroy = Track.find(params[:id])
+        if @trackDestroy.destroy
+            redirect_to root_path
+        else
+            render 'destory'
+        end
     end
     
     private 

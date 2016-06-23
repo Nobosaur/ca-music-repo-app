@@ -1,4 +1,6 @@
 class AlbumsController < ApplicationController
+   
+    before_action :require_user, only: [:new, :create, :edit, :update, :destroy]
     
     def index
         @albums = Album.all
@@ -21,6 +23,7 @@ class AlbumsController < ApplicationController
         @album = Album.find(params[:id])
         @tracks = @album.track
     end
+    
     def edit
        @albumEdit = Album.find(params[:id])  
     end
@@ -32,6 +35,15 @@ class AlbumsController < ApplicationController
         else 
             render 'edit' 
         end 
+    end
+    
+    def destroy
+        @albumDestroy = Album.find(params[:id])
+        if @albumDestroy.destroy
+            redirect_to root_path
+        else
+            render 'destory'
+        end
     end
     
     private 
