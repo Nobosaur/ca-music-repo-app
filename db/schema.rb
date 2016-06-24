@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160623120152) do
+ActiveRecord::Schema.define(version: 20160624073926) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "cover"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20160623120152) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "role"
   end
 
 end
