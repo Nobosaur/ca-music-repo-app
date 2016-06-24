@@ -7,7 +7,7 @@
         <div class="caption">
           <h3 class="title"><%= a.title %></h3>
           <p class="artist"><%= a.artist %></p>
-            <% if current_user %> 
+            <% if current_user && current_user.admin? %> 
                 <p class="artist"><%= link_to 'Delete album', album_path(a), method: :delete %></p>
             <% else %> 
                   <!--If not loged in not showing add new part-->      
@@ -17,7 +17,7 @@
     <% end %>
   </div>
 <% end %>
-    <% if current_user %> 
+    <% if current_user && current_user.admin? %> 
         <div class="col-md-3">
             <div class="thumbnail">
                 <%= link_to image_tag("https://dl.dropboxusercontent.com/u/66938641/add_new.png"), new_album_path %>

@@ -1,0 +1,38 @@
+<div class="col-sm-12">
+    <h3 class="album-title">  </h3>
+    <p class="album-artist"> </p>
+
+
+    <table style="width:100%" class="user-list">
+        <tr>
+            <td>Name</td>
+            <td>Last name</td>
+            <td>Email</td>
+            <td>Role</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <% @userAll.each do |f| %>
+            <tr>
+                <td>
+                    <%= f.first_name %>
+                </td>
+                <td>
+                    <%= f.last_name %>
+                </td>
+                <td>
+                    <%= f.email %>
+                </td>
+                <td>
+                    <%= f.role %>
+                </td>
+                <td>
+                    <%= link_to 'Edit user', edit_user_path(f) %>
+                </td>
+                <td>
+                    <%= link_to 'Delete user', user_path(f), method: :delete %>
+                </td>
+            </tr>
+            <% end %>
+    </table>
+</div>
