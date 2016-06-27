@@ -38,6 +38,38 @@ body {
     margin: 15px 0;
 }
 
+.header h3 {
+    text-transform: uppercase;
+    font-size: 15px;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 30px;
+}
+
+.header a {
+    color: #fff;
+}
+
+.header a:hover {
+    color: #428bca;
+}
+
+.header li {
+    list-style: none
+}
+
+.login {
+    margin-top: 15px;
+}
+
+.login a {
+    color: #428bca !important;
+}
+
+.login a:hover {
+    color: #2a6496 !important;
+}
+
 
 /* Main */
 
@@ -157,18 +189,18 @@ body {
     padding: 5px 0;
 }
 
-    .edit-button {
+.edit-button {
     background-color: #428bca;
-        color: #fff;
-}
-
-.edit-button a{
     color: #fff;
 }
-.edit-button a:hover{
-    color: #ccc;
+
+.edit-button a {
+    color: #fff;
 }
 
+.edit-button a:hover {
+    color: #ccc;
+}
 
 .label {
     color: #ccc;
