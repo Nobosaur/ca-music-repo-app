@@ -6,6 +6,10 @@ class UsersController < ApplicationController
         @userAll = User.all
     end
     
+    def show
+        @user = User.find_by_id(params[:id])
+    end
+    
     def new
         @userNew = User.new
     end

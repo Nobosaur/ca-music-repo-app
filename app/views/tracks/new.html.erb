@@ -1,7 +1,7 @@
 <%= form_for @trackNew, url: {action: 'create'} do |f| %>  
     <div class="field"> 
       Name:<br> <%= f.text_area :name %><br>
-       minutes:<br> <%= f.text_area :minutes %><br> 
+    Minutes:<br> <%= f.text_area :minutes %><br> 
     </div> 
     <div class="actions"> 
       <%= f.submit "Save" %> 
