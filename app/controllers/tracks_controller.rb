@@ -9,21 +9,8 @@ class TracksController < ApplicationController
     def new
         @trackNew = Track.new 
     end
-    
-   # def create
-   #     @albumId = Album.find(params[:album_id])
-   #     @userId = User.find(params[:user_id])
-   #     @trackNew = @albumId.track.build(tracks_params)
-   #     if @trackNew.save 
-   #         redirect_to album_path(@albumId)
-   #     else 
-   #         render 'new' 
-   #     end 
-   # end
-    
-    
+
     def create
-        #@trackNew.users = current_user
         @albumId = Album.find(params[:album_id])
         @trackNew = @albumId.track.build(tracks_params)
         @trackNew.user = current_user
@@ -35,8 +22,7 @@ class TracksController < ApplicationController
     end
     
     def edit
-       @trackEdit = Track.find(params[:id]) 
-        @albumId = Album.find(params[:album_id])
+        @trackEdit = Track.find(params[:id]) 
     end
     
     def update 

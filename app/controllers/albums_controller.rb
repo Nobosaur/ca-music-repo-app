@@ -1,6 +1,7 @@
 class AlbumsController < ApplicationController
    
-    before_action :require_admin, only: [:new, :create, :edit, :update, :destroy]
+    before_action :require_admin, only: [:new, :create, :destroy]
+    before_action :require_user, only: [:edit, :update]
     
     def index
         @albums = Album.all
@@ -22,7 +23,6 @@ class AlbumsController < ApplicationController
     def show
         @album = Album.find(params[:id])
         @tracks = @album.track
-        
     end
     
     def edit
